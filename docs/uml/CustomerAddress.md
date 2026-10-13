@@ -28,5 +28,5 @@ classDiagram
         +getPostcode() String
     }
 
-   
+    Customer --> Address : has an
 ```
