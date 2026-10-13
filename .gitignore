@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# macOS folder metadata
+.DS_Store
