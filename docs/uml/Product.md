@@ -1,6 +1,6 @@
 #Product class diagram
 
-`mermaid
+```mermaid
 classDiagram
     class Product {
         -Long id

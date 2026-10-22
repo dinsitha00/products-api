@@ -1,0 +1,28 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Product {
+    - id : Long
+    - name : String
+    - price : double
+    + getName() : String
+    + getPrice() : double
+}
+
+class DigitalProduct {
+    - downloadURL : String
+    - filesizeMB : double
+    + getDownloadURL() : String
+}
+
+class PhysicalProduct {
+    - weightKG : double
+    - dimensions : String
+    + getWeightKG() : double
+}
+
+' <|-- is the inheritance arrow. The PARENT goes on the left.
+Product <|-- DigitalProduct
+Product <|-- PhysicalProduct
+
+@enduml
