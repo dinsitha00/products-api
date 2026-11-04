@@ -1,28 +1,42 @@
 @startuml
 skinparam classAttributeIconSize 0
 
-class Product {
+abstract class Product {
     - id : Long
     - name : String
     - price : double
+    + {abstract} getSummary() : String
     + getName() : String
     + getPrice() : double
+}
+
+interface Discountable {
+    + applyDiscount(rate : double) : void
+    + getDiscountedPrice() : double
 }
 
 class DigitalProduct {
     - downloadURL : String
     - filesizeMB : double
-    + getDownloadURL() : String
+    - discountedPrice : double
+    + getSummary() : String
+    + applyDiscount(rate : double) : void
+    + getDiscountedPrice() : double
 }
 
 class PhysicalProduct {
     - weightKG : double
     - dimensions : String
-    + getWeightKG() : double
+    - discountedPrice : double
+    + getSummary() : String
+    + applyDiscount(rate : double) : void
+    + getDiscountedPrice() : double
 }
 
-' <|-- is the inheritance arrow. The PARENT goes on the left.
 Product <|-- DigitalProduct
 Product <|-- PhysicalProduct
+
+Discountable <|.. DigitalProduct
+Discountable <|.. PhysicalProduct
 
 @enduml
